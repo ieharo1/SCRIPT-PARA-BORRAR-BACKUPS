@@ -1,15 +1,36 @@
-XML HSTACC2 Auto-Replacer with Alerts (PowerShell)
+# 🗑️ SCRIPT-PARA-BORRAR-BACKUPS
 
-Script en PowerShell para automatizar el reemplazo de la etiqueta <HSTACC2> por <HSTACC> en archivos XML.
-Incluye backup automático, logging detallado y notificaciones únicamente en caso de error vía correo SMTP y Telegram.
+Script en PowerShell para automatizar el reemplazo de etiquetas XML y limpieza de archivos de backup desarrollado por **Isaac Esteban Haro Torres**.
 
-Diseñado para entornos productivos y procesos batch críticos.
+---
 
-------------------------------------------------------------
+## 📝 Descripción
 
-FUNCIONALIDADES
+Script para automatizar el reemplazo de la etiqueta `<HSTACC2>` por `<HSTACC>` en archivos XML. Incluye backup automático, logging detallado y notificaciones únicamente en caso de error vía correo SMTP y Telegram.
 
-- Reemplazo automático de <HSTACC2> por <HSTACC>
+---
+
+## 🎯 Para qué sirve
+
+- Reemplazo automático de etiquetas XML legacy
+- Limpieza de archivos backup antiguos
+- Automatización de procesos batch críticos
+- Integraciones con sistemas ERP
+- Mantenimiento de archivos XML
+
+---
+
+## 🏗 Arquitectura
+
+```
+Carpeta XML → Script → Backup → Procesamiento → Notificaciones (si error)
+```
+
+---
+
+## 🚀 Funcionalidades
+
+- Reemplazo automático de `<HSTACC2>` por `<HSTACC>`
 - Procesa únicamente archivos nuevos
 - Backup obligatorio antes de modificar archivos
 - Logs diarios con timestamp
@@ -18,35 +39,48 @@ FUNCIONALIDADES
 - Notificación por Telegram solo si hay errores
 - Listo para ejecución programada
 
-------------------------------------------------------------
+---
 
-ESTRUCTURA DE CARPETAS
+## 📂 Estructura de Carpetas
 
-C:\ASPEN\OUTBOUND\RECIBO
-C:\ASPEN\OUTBOUND\BACKUP RECIBO
-C:\Scripts Software Aplicaciones\LOGS
+```
+C:\ASPEN\OUTBOUND\RECIBO        # Archivos a procesar
+C:\ASPEN\OUTBOUND\BACKUP       # Respaldos
+C:\Scripts\Logs                # Logs
+```
 
-------------------------------------------------------------
+---
 
-CONFIGURACION PRINCIPAL
+## 💻 Requisitos
 
-RUTAS
-$XmlPath
-$BackupPath
-$LogPath
+- Windows Server o Windows 10+
+- PowerShell 5.1 o superior
+- Acceso a servidor SMTP
+- Token válido de Telegram Bot
 
-SMTP
-$SmtpServer
-$MailFrom
-$MailTo
+---
 
-TELEGRAM
-$TelegramBotToken
-$TelegramChatId
+## ⚙️ Configuración Principal
 
-------------------------------------------------------------
+```powershell
+# Rutas
+$XmlPath = "C:\ASPEN\OUTBOUND\RECIBO"
+$BackupPath = "C:\ASPEN\OUTBOUND\BACKUP"
+$LogPath = "C:\Scripts\Logs"
 
-FLUJO DEL PROCESO
+# SMTP
+$SmtpServer = "smtp.servidor.com"
+$MailFrom = "sistema@servidor.com"
+$MailTo = "admin@servidor.com"
+
+# Telegram
+$TelegramBotToken = "token"
+$TelegramChatId = "chat_id"
+```
+
+---
+
+## 🔄 Flujo del Proceso
 
 1. Escanea la carpeta de XML de entrada
 2. Omite archivos ya respaldados
@@ -55,62 +89,43 @@ FLUJO DEL PROCESO
 5. Registra acciones en log
 6. Notifica solo si existen errores
 
-------------------------------------------------------------
+---
 
-NOTIFICACIONES
+## 📬 Notificaciones
 
-Las alertas se envían únicamente cuando se detectan errores
+Las alertas se envían únicamente cuando se detectan errores:
 
-Correo electrónico
-- Formato HTML
-- Incluye servidor, fecha, rutas y detalle de errores
+- **Correo electrónico:** Formato HTML con detalles
+- **Telegram:** Mensaje en texto plano
 
-Telegram
-- Mensaje en texto plano
-- Compatible con grupos o canales
+---
 
-------------------------------------------------------------
-
-BUENAS PRACTICAS
-
-- No modifica archivos sin respaldo
-- No reprocesa archivos ya tratados
-- Logging persistente
-- Manejo de excepciones controlado
-- Ejecución segura en background
-
-------------------------------------------------------------
-
-EJECUCION RECOMENDADA
+## ⚙️ Ejecución Recomendada
 
 - Windows Task Scheduler
 - Ejecución periódica
 - Usuario con permisos sobre las rutas configuradas
 
-------------------------------------------------------------
+---
 
-CASOS DE USO
+## 🎯 Casos de Uso
 
 - Integraciones ERP (Aspen / SAP)
 - Procesos de facturación o recibos
 - Corrección de XML legacy
 - Automatización de flujos batch
-- Operaciones productivas desatendidas
 
-------------------------------------------------------------
+---
 
-REQUISITOS
+## 👨‍💻 Desarrollado por Isaac Esteban Haro Torres
 
-- Windows Server o Windows 10+
-- PowerShell 5.1 o superior
-- Acceso a servidor SMTP
-- Token válido de Telegram Bot
+**Ingeniero en Sistemas · Full Stack · Automatización · Data**
 
-------------------------------------------------------------
+- 📧 Email: zackharo1@gmail.com
+- 📱 WhatsApp: 098805517
+- 💻 GitHub: https://github.com/ieharo1
+- 🌐 Portafolio: https://ieharo1.github.io/portafolio-isaac.haro/
 
-AUTOR
+---
 
-Isaac Esteban Haro
-Senior Automation & Integration Engineer
-
-PowerShell | DevOps | Data Integration | Monitoring
+© 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.
