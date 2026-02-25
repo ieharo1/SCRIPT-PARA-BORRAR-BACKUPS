@@ -129,3 +129,4 @@ Las alertas se envían únicamente cuando se detectan errores:
 ---
 
 © 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.
+
